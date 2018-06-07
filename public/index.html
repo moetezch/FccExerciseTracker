@@ -2,9 +2,7 @@
 <html>
    <head>
       <title>FreeCodeCamp Exercise tracker</title>
-      <meta name = "viewport" content = "width = device-width, initial-scale = 1">  
-      <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
-    crossorigin="anonymous"></script>    
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
       <link rel = "stylesheet"
          href = "https://fonts.googleapis.com/icon?family=Material+Icons">
       <link rel = "stylesheet" 
@@ -13,6 +11,8 @@
          src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
       <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
       </script> 
+      <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+      crossorigin="anonymous"></script>
    </head>
 <body class="container">
 
@@ -49,14 +49,17 @@
         </div>
         <div class="col s12" id="3">
     
-            <form action="/api/exercise/add/log" method="get">
+            <form action="/api/exercise/log/" method="GET">
               <h3>Get exercises</h3>
-              <p><code>POST /api/exercise/add</code></p>
+              <p>GET users's exercise log: <code>GET /api/exercise/log?{userId}[&from][&to][&limit]</code><br>
+                { } = required, [ ] = optional <br>
+                from, to = dates (mm-dd-yyyy-); limit = number
+              </p>
               <input type="text" name="userId" placeholder="userId(required)">
-              <input type="date" name="date" placeholder="date (yyyy-mm-dd)">
-              <input type="date" name="date" placeholder="date (yyyy-mm-dd)">
+              <input type="date" name="start" placeholder="date (yyyy-mm-dd)">
+              <input type="date" name="end" placeholder="date (yyyy-mm-dd)">
               <input type="number" name="limit" placeholder="limit(optional)">
-              <input type="submit" value="Submit" class="btn">
+              <input type="submit" value="Submit" class="btn"> 
             </form>
         </div>
       </div>
